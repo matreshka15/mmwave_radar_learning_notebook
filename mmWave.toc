@@ -1,0 +1,22 @@
+\contentsline {section}{\numberline {1}概述}{1}% 
+\contentsline {section}{\numberline {2}mmWave基础知识}{1}% 
+\contentsline {subsection}{\numberline {2.1}什么是FMCW}{1}% 
+\contentsline {paragraph}{FMCW雷达}{1}% 
+\contentsline {subsection}{\numberline {2.2}FMCW雷达测距原理}{2}% 
+\contentsline {paragraph}{1TX-1RX FMCW雷达}{2}% 
+\contentsline {subsubsection}{\numberline {2.2.1}mmWave雷达的分辨率与探测距离}{2}% 
+\contentsline {paragraph}{距离分辨率的计算：}{2}% 
+\contentsline {subparagraph}{问题一:}{2}% 
+\contentsline {subparagraph}{问题二:}{3}% 
+\contentsline {subparagraph}{IF信号的数字化:}{3}% 
+\contentsline {subsubsection}{\numberline {2.2.2}提高mmWave性能方法}{3}% 
+\contentsline {subparagraph}{1：增大IF信号的长度$T_c$}{3}% 
+\contentsline {subparagraph}{2：提高线性调频脉冲频域的斜率S}{4}% 
+\contentsline {subsection}{\numberline {2.3}IF信号的相位}{4}% 
+\contentsline {paragraph}{}{4}% 
+\contentsline {subparagraph}{IF信号的相位也会发生相应变化}{4}% 
+\contentsline {subsubsection}{\numberline {2.3.1}IF信号与物体微小位移的关系}{4}% 
+\contentsline {paragraph}{举例：}{4}% 
+\contentsline {subsubsection}{\numberline {2.3.2}用两个线性调频脉冲测量物体速度v}{5}% 
+\contentsline {paragraph}{}{5}% 
+\contentsline {subparagraph}{补充}{5}% 
