@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.6.27)  28 SEP 2019 15:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.6.27)  28 SEP 2019 17:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -783,15 +783,15 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
 
 Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (
 quanjiao) on input line 17.
-<pic/FMCW.png, id=58, 353.32pt x 193.72375pt>
+<pic/FMCW.png, id=59, 353.32pt x 193.72375pt>
 File: pic/FMCW.png Graphic file (type png)
 <use pic/FMCW.png>
 Package pdftex.def Info: pic/FMCW.png  used on input line 23.
 (pdftex.def)             Requested size: 176.40439pt x 96.7227pt.
  [1
 
- <./pic/FMCW.png (PNG copy)>]
-<pic/FMCW_Fwave.png, id=134, 331.2375pt x 193.72375pt>
+]
+<pic/FMCW_Fwave.png, id=136, 331.2375pt x 193.72375pt>
 File: pic/FMCW_Fwave.png Graphic file (type png)
 <use pic/FMCW_Fwave.png>
 Package pdftex.def Info: pic/FMCW_Fwave.png  used on input line 29.
@@ -811,7 +811,7 @@ C70/rm/m/n/10.53937/53 ÷\OT1/cmr/m/n/10.53937 (IF Sig-nal)|\C70/rm/m/n/10.53937
 7/4e Î\OT1/cmr/m/n/10.53937 TX\C70/rm/m/n/10.53937/53 Ñ
  []
 
-<pic/TXRX.png, id=137, 196.735pt x 262.9825pt>
+<pic/TXRX.png, id=138, 196.735pt x 262.9825pt>
 File: pic/TXRX.png Graphic file (type png)
 <use pic/TXRX.png>
 Package pdftex.def Info: pic/TXRX.png  used on input line 39.
@@ -822,28 +822,30 @@ File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.53937> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 46.
-<pic/problem_1.png, id=139, 211.79124pt x 166.6225pt>
+ [2 <./pic/FMCW.png (PNG copy)> <./pic/FMCW_Fwave.png (PNG copy)> <./pic/TXRX.p
+ng (PNG copy)>]
+<pic/problem_1.png, id=163, 211.79124pt x 166.6225pt>
 File: pic/problem_1.png Graphic file (type png)
 <use pic/problem_1.png>
 Package pdftex.def Info: pic/problem_1.png  used on input line 48.
 (pdftex.def)             Requested size: 132.30666pt x 104.09303pt.
- [2 <./pic/FMCW_Fwave.png (PNG copy)> <./pic/TXRX.png (PNG copy)>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 51--56
 
  []
 
-<pic/problem_2.png, id=169, 462.72874pt x 209.78375pt>
+<pic/problem_2.png, id=165, 462.72874pt x 209.78375pt>
 File: pic/problem_2.png Graphic file (type png)
 <use pic/problem_2.png>
 Package pdftex.def Info: pic/problem_2.png  used on input line 57.
 (pdftex.def)             Requested size: 154.35889pt x 69.98108pt.
 [3 <./pic/problem_1.png (PNG copy)> <./pic/problem_2.png (PNG copy)>]
-<pic/phaseOfIF.png, id=194, 568.1225pt x 402.50375pt>
+<pic/phaseOfIF.png, id=186, 568.1225pt x 402.50375pt>
 File: pic/phaseOfIF.png Graphic file (type png)
 <use pic/phaseOfIF.png>
 Package pdftex.def Info: pic/phaseOfIF.png  used on input line 80.
 (pdftex.def)             Requested size: 176.40439pt x 124.97754pt.
-<pic/phaseplustau.png, id=195, 537.00626pt x 404.51125pt>
+<pic/phaseplustau.png, id=187, 537.00626pt x 404.51125pt>
 File: pic/phaseplustau.png Graphic file (type png)
 <use pic/phaseplustau.png>
 Package pdftex.def Info: pic/phaseplustau.png  used on input line 86.
@@ -853,7 +855,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 90--91
 
  []
 
-<pic/IFsensitivity.png, id=199, 143.53625pt x 166.6225pt>
+<pic/IFsensitivity.png, id=191, 143.53625pt x 166.6225pt>
 File: pic/IFsensitivity.png Graphic file (type png)
 <use pic/IFsensitivity.png>
 Package pdftex.def Info: pic/IFsensitivity.png  used on input line 95.
@@ -891,43 +893,82 @@ L| \C70/rm/m/n/10.53937/4f F \C70/rm/m/n/10.53937/62 å \C70/rm/m/n/10.53937/67
  []
 
 [5 <./pic/IFsensitivity.png (PNG copy)> <./pic/speedmes.png (PNG copy)> <./pic/
-deltaphase.png (PNG copy)>] [6] (./mmWaveNotes.aux)
+deltaphase.png (PNG copy)>]
+Overfull \hbox (28.48169pt too wide) in paragraph at lines 125--126
+ \OT1/cmr/bx/n/10.53937 FFT[] \C70/rm/m/n/10.53937/4e ^^N ^^@ * \C70/rm/m/n/10.
+53937/76 ø \C70/rm/m/n/10.53937/91 Ï \C70/rm/m/n/10.53937/4e å \C70/rm/m/n/10.5
+3937/60 R \C70/rm/m/n/10.53937/5b š \C70/rm/m/n/10.53937/79 » \C70/rm/m/n/10.53
+937/65 c \C70/rm/m/n/10.53937/89 Ò \C70/rm/m/n/10.53937/90 ^^_ \C70/rm/m/n/10.5
+3937/5e ¦$\OML/cmm/m/it/10.53937 !$\OT1/cmr/m/n/10.53937 (/\C70/rm/m/n/10.53937
+/6b ! \C70/rm/m/n/10.53937/91 Ç \C70/rm/m/n/10.53937/68 7\OT1/cmr/m/n/10.53937 
+)\C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/90 ^^_ \C70/rm/m/n/10.53937/73 
+‡ \C70/rm/m/n/10.53937/65 Ë \C70/rm/m/n/10.53937/8f l\OT1/cmr/m/n/10.53937 (\C7
+0/rm/m/n/10.53937/53 s \C70/rm/m/n/10.53937/6b Ï \C70/rm/m/n/10.53937/4e $ * \C
+70/rm/m/n/10.53937/68 7 \C70/rm/m/n/10.53937/67 , \C70/rm/m/n/10.53937/4e K \C7
+0/rm/m/n/10.53937/95 ô \C70/rm/m/n/10.53937/76 ø \C70/rm/m/n/10.53937/96 ”$\OML
+/cmm/m/it/10.53937 !$\C70/rm/m/n/10.53937/5f ' \C70/rm/m/n/10.53937/5e ¦\OT1/cm
+r/m/n/10.53937 )|\C70/rm/m/n/10.53937/ff ^^L| \C70/rm/m/n/10.53937/51 v\OT1/cmr
+/m/n/10.53937 FFT\C70/rm/m/n/10.53937/5c ^^F
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--151
+
+ []
+
+[6]
+<pic/diffframe.png, id=236, 511.9125pt x 197.73875pt>
+File: pic/diffframe.png Graphic file (type png)
+<use pic/diffframe.png>
+Package pdftex.def Info: pic/diffframe.png  used on input line 153.
+(pdftex.def)             Requested size: 176.40439pt x 68.13847pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--160
+
+ []
+
+[7 <./pic/diffframe.png (PNG copy)>] (./mmWaveNotes.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 17618 strings out of 492623
- 324342 string characters out of 6133290
- 336400 words of memory out of 5000000
- 21014 multiletter control sequences out of 15000+600000
- 578501 words of font info for 194 fonts, out of 8000000 for 9000
+ 17758 strings out of 492623
+ 326449 string characters out of 6133290
+ 339400 words of memory out of 5000000
+ 21117 multiletter control sequences out of 15000+600000
+ 580661 words of font info for 202 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,6n,63p,505b,317s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/s
-imhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows
-/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:
-/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei
-.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Font
+ 42i,6n,63p,517b,317s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/s
+imhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows
+/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:
+/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun
+.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Font
 s/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Wind
 ows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf>
 <c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/sim
-hei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/F
-onts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/W
-indows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.t
-tc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/
+sun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/F
+onts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/W
+indows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.t
+tf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/
 simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Window
-s/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c
-:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsu
-n.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fon
-ts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Win
-dows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc
-><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/si
-msun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/
-Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/
-Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.
-ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts
+s/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c
+:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhe
+i.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fon
+ts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Win
+dows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf
+><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/si
+mhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/
+Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/
+Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.
+ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts
 /simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windo
 ws/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><
 c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/sims
@@ -942,27 +983,29 @@ imsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows
 s/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Wind
 ows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc>
 <c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/sim
-hei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/F
-onts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/W
-indows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.t
-tc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/
-simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Window
-s/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/texlive/2019/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmbx12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi5.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
-><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texli
-ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2019/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2019/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2019/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsl10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy7.pfb>
-Output written on mmWaveNotes.pdf (6 pages, 1027995 bytes).
+sun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/F
+onts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/W
+indows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.t
+tf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/
+simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Window
+s/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c
+:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsu
+n.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fon
+ts/simsun.ttc><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10
+.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/
+texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2
+019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2019/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2019/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr17.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7
+.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb><c:/
+texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2
+019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on mmWaveNotes.pdf (7 pages, 1089385 bytes).
 PDF statistics:
- 617 PDF objects out of 1000 (max. 8388607)
- 398 compressed objects within 4 object streams
+ 653 PDF objects out of 1000 (max. 8388607)
+ 423 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
- 327 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 336 words of extra memory for PDF output out of 10000 (max. 10000000)
 

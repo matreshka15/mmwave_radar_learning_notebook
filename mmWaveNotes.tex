@@ -122,5 +122,41 @@ IF信号的频率变化$\Delta f=\frac{S2\Delta d}{c}=333Hz$\\
 (2) 当有多个物体恰好与雷达的距离相同，但拥有不同的移动速度。那么距离FFT(Range FFT,即上文中使用的FFT)将只输出单个与此距离d对应的峰值。分离方法：多普勒FFT:用于分离多个距离相同但速度不同的物体。
 %Module 3
 \subsection{速度估计}
-\paragraph{FFT}
+\paragraph{FFT}与一个相量以恒定离散角速度$\omega$(/次采样)的速率旋转(即每两个样本之间相隔$\omega$弧度)，其FFT将在$\omega$处产生一个峰值
+\subparagraph{分辨率的问题：}
+当一个信号内由两个相量构成时，FFT理应有$\omega_1$与$\omega_2$两个峰值。\\
+请注意：输入序列的长度越长，FFT的分辨率越高。一般地，一个长度为N的序列可以分辨两个角速度差大于$2\pi/N$的信号。
+\subparagraph{比较连续信号与离散信号的分辨率}:\\
+	连续信号：$\Delta f=\frac{1}{T} (cycles/sec)$,其中T为观察窗口\\
+	离散信号：$\Delta \omega=\frac{2\pi}{N}(rad/sample) = \frac{1}{N} (cycles/sample)$,N为观测样本数
+\subparagraph{最大可测量速度}与波长和观察时间有关。当物体远离雷达向远处移动时，$\omega>0$；当物体远离雷达向近处移动时，$\omega<0$。考虑$e^{j\omega}$周期为2π，当$|\omega|>180^\circ=\pi$时，将无法判断物体的运动方向。即：\\
+不产生歧义的速度测量：$|\omega|<\pi$\\
+∴$\frac{4\pi v T_c}{\lambda}<\pi$,即$v<\frac{\lambda}{4T_c}$\\
+得到：\[v_{max}=\frac{\lambda}{4T_c}\]其中$T_c$为两个Chirp间隔。\\
+因此要得到更高的最大可测量速度，需要由更密集的线性调频脉冲(降低$T_c$)
+
+\subsubsection{测量距离相同的多个物体的速度}
+\paragraph{考虑}两个与雷达相距均为d,但速度分别为$v_1,v_2$,它们均向雷达靠近。
+由于距离相同，Range-FFT的输出将只有一个峰值，但峰值处的相量相位将具有两个物体的分量。
+\paragraph{解决方案}:
+\subparagraph{发射一系列等间隔的线性调频脉冲}，而不仅仅是两个Chirps.假设发射N个Chirps(通常称它们为1帧)，对一系列相量做Range-FFT,得到的一组Range-FFT总会在相同的位置有一个峰值，但与这些相量相对应的离散序列有两个旋转相量，分别为$\omega_1,\omega_2$，对应$v_1,v_2$。因此对这个序列的FFT将有两个峰值$\omega_1,\omega_2$。将其代入下式，得到两物体的速度：\\
+\[v_1=\frac{\lambda \omega_1}{4 \pi T_c}\]
+\[v_2=\frac{\lambda \omega_2}{4 \pi T_c}\]\\
+请注意：这里的FFT是在线性调频脉冲之间执行的，通常称为多普勒FFT(doppler-FFT)。
+\subparagraph{多普勒FFT的速度分辨率}，即$v_1,v_2$之间的最小间隔可由以下条件给出：\\
+两个物体的速度差为$\Delta v$，则其角频率差为\(\Delta \omega=\frac{4\pi \Delta v T_c}{\lambda}\)\\
+对于序列长度为N的FFT,当其角频率差值$\Delta \omega>\frac{2\pi}{N}$时，可被FFT分辨。\\
+∴$\frac{4\pi \Delta v T_c}{\lambda}>\frac{2\pi}{N}$,即$\Delta v > \frac{\lambda}{2NT_c}$\\
+即$v_{res}=\frac{\lambda}{2NT_c}=\frac{\lambda}{2T_f}$,$T_f$为帧时间长度。\\
+\subparagraph{问题：}两个雷达的帧如下
+
+{\centering \includegraphics[width = .4\textwidth]{pic/diffframe.png}
+
+}
+问：如何评价两个雷达的最大测量速度$v_{max}$与速度测量精度$v_{res}$？\\
+答：两个雷达的帧时间长度相同，且FMCW的带宽相同、斜率S相同。则$\lambda$相同\\
+∴$v_{res}=\frac{\lambda}{2T_f}$，可得两个雷达速度测量精度$v_{res}$相同。\\
+由$v_{max}=\frac{\lambda}{4T_c}$，其中$T_c$为两个Chirps之间的时间间隔，可知Radar A的最大可测量速度较大。\\
+
 \end{document}
+
