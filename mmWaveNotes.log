@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.6.27)  28 SEP 2019 15:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.6.27)  28 SEP 2019 15:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**mmWave.tex
-(./mmWave.tex
+**mmWaveNotes.tex
+(./mmWaveNotes.tex
 LaTeX2e <2018-12-01>
 (c:/texlive/2019/texmf-dist/tex/latex/ctex/ctexart.cls
 (c:/texlive/2019/texmf-dist/tex/latex/l3kernel/expl3.sty
@@ -590,8 +590,9 @@ File: UTF8.enc 2015/04/18 4.8.4
 )
 (c:/texlive/2019/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.chr
 File: UTF8.chr 2015/04/18 4.8.4
-) (./mmWave.aux)
-\openout1 = `mmWave.aux'.
+)
+(./mmWaveNotes.aux)
+\openout1 = `mmWaveNotes.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
@@ -771,14 +772,14 @@ e
 LaTeX Font Info:    Try loading font information for C70+rm on input line 14.
 (c:/texlive/2019/texmf-dist/tex/latex/ctex/fd/c70rm.fd
 File: c70rm.fd 2019/04/07 v2.4.15 Chinese font definition (CTEX)
-) (./mmWave.toc
+) (./mmWaveNotes.toc
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
 (Font)              size <10.95> substituted on input line 3.
 
 )
 \tf@toc=\write3
-\openout3 = `mmWave.toc'.
+\openout3 = `mmWaveNotes.toc'.
 
 Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (
 quanjiao) on input line 17.
@@ -874,7 +875,7 @@ File: pic/deltaphase.png Graphic file (type png)
 Package pdftex.def Info: pic/deltaphase.png  used on input line 116.
 (pdftex.def)             Requested size: 176.40439pt x 87.38786pt.
 
-Overfull \hbox (1.43083pt too wide) in paragraph at lines 120--123
+Overfull \hbox (1.43083pt too wide) in paragraph at lines 120--124
 \OT1/cmr/m/n/10.53937 (2) \C70/rm/m/n/10.53937/5f S \C70/rm/m/n/10.53937/67 	 \
 C70/rm/m/n/10.53937/59 ^^Z \C70/rm/m/n/10.53937/4e * \C70/rm/m/n/10.53937/72 i 
 \C70/rm/m/n/10.53937/4f S \C70/rm/m/n/10.53937/60 p \C70/rm/m/n/10.53937/59 } \
@@ -890,20 +891,20 @@ L| \C70/rm/m/n/10.53937/4f F \C70/rm/m/n/10.53937/62 å \C70/rm/m/n/10.53937/67
  []
 
 [5 <./pic/IFsensitivity.png (PNG copy)> <./pic/speedmes.png (PNG copy)> <./pic/
-deltaphase.png (PNG copy)>] [6] (./mmWave.aux)
+deltaphase.png (PNG copy)>] [6] (./mmWaveNotes.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 17609 strings out of 492623
- 324132 string characters out of 6133290
- 336371 words of memory out of 5000000
- 21008 multiletter control sequences out of 15000+600000
- 577691 words of font info for 191 fonts, out of 8000000 for 9000
+ 17618 strings out of 492623
+ 324342 string characters out of 6133290
+ 336400 words of memory out of 5000000
+ 21014 multiletter control sequences out of 15000+600000
+ 578501 words of font info for 194 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,6n,63p,500b,317s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,6n,63p,505b,317s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/s
 imhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows
 /Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:
@@ -958,7 +959,7 @@ onts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2019/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmsl10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmsy7.pfb>
-Output written on mmWave.pdf (6 pages, 1025466 bytes).
+Output written on mmWaveNotes.pdf (6 pages, 1027995 bytes).
 PDF statistics:
  617 PDF objects out of 1000 (max. 8388607)
  398 compressed objects within 4 object streams
