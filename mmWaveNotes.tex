@@ -1,11 +1,12 @@
 \documentclass[UTF8]{ctexart}
 %笔者信息
-\title{mmWave学习笔记}
+\title{mmWave Sensing 学习笔记}
 \author{李东豫  Powered by TI}
 \date{\today}
 %包引用
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{enumerate}
 %页边距设置
 \usepackage{geometry}
 \geometry{papersize={210mm,297mm}}
@@ -14,7 +15,7 @@
 \maketitle
 \tableofcontents
 \section{概述}
-mmWave雷达是近来使用在众多无人驾驶项目中用于建图、避障的高性能传感器，具有分辨率高，不受恶劣天气干扰，隐私性好(想想如果在洗手间安装一个摄像头监控会有多尴尬)的优点。由于Estello无人载具项目开发的需要，我们选择TI的IWR1443毫米波雷达作为载体进行相关学习。
+mmWave雷达是近来使用在众多无人驾驶项目中用于建图、避障的高性能传感器，具有分辨率高，不受恶劣天气干扰，隐私性好(想想如果在洗手间安装一个摄像头监控会有多尴尬)的优点。由于开发的需要，我们选择TI的IWR1443毫米波雷达作为载体进行相关学习。
 \section{mmWave基础知识}
 本节将关注mmWave雷达测量距离、角度、速度的原理进行介绍。
 \subsection{什么是FMCW}
@@ -161,6 +162,96 @@ IF信号的频率变化$\Delta f=\frac{S2\Delta d}{c}=333Hz$\\
 %Module 4
 \subsection{设计mmWave雷达系统}
 本节主要目标位设计一个符合制定标准（速度分辨率，最大测量速度等），并粗略了解一些更深层的雷达设计知识。
-\subsubsection{}
+\subsubsection{回顾FMCW 2D FFT处理}
+首先，可以使用距离FFT(Range-FFT)来解析处于不同距离的物体，然后，多普勒FFT(doppler-FFT)对一帧中的后续的线性调频脉冲进行解析，可以解析出处于距离相近但速度不同的物体。
+\paragraph{梳理}:\\
+(1)雷达Tx天线发射一系列时间间隔相同的线性调频脉冲，称为一帧。\\
+(2)雷达Rx端对接收的信号进行ADC采样。请注意：ADC采样得到的数据将是连续不断的，前一个线性调频脉冲对后一个Chirp进行影响的数据。（请好好理解）\\
+(3)DSP或其他处理器对ADC采得的数据,即距离单元进行距离FFT（对每一个单独的线性调频脉冲--此时的线性调频脉冲由于受到前一个脉冲的叠加，因此改称为range-bin,距离单元），得到物体之间的距离\\
+(4)DSP再对所有距离单元进行多普勒FFT，得到距离相近物体的不同速度（注意是所有！因此多普勒FFT必须在一帧全部接收后才能进行）。\\
+说明：DSP在接收到数据时以“内联”方式对ADC数据进行距离FFT,之后将距离FFT数据存储到存储单元中——距离单元。ADC数据不被储存。之后对其进行多普勒FFT。此操作称为2维FFT。
+\subparagraph{公式回顾}：\\
+\[v_{max}=\frac{\lambda}{4T_c},v_{res}=\frac{\lambda}{2T_f}\]
+\[d_{res}=\frac{c}{2B}\]
+\[F_{if\_max}=\frac{S2d_{max}}{c}\]
+\subsubsection{系统设计}
+\paragraph{考虑：}给定距离分辨率$d_{res}$,最大距离$d_{max}$，速度分辨率$v_{res}$,最大可测量速度$v_{max}$，如何设计一帧？
+\subparagraph{}
+可能的解法：\\
+(1)首先从$v_{max}$开始，由上公式可见$v_{max}$仅取决于$T_c$，即线性调频脉冲之间的时间间隔。因此，给定$v_{max}$，直接可得：
+\[T_c=\frac{\lambda}{4v_{max}}\]
+(2)注意到距离分辨率$d_{res}$仅取决于线性调频脉宽的带宽B,因此可求得：
+\[B=\frac{c}{2d_{res}}\]
+请注意，此时由于$T_c$与B均已确定，则Chirps的斜率S也已锁定。\\
+(3)速度分辨率$v_{res}$仅取决于一帧的时间$T_f$,因此可求得：
+\[T_f=\frac{lambda}{2v_{res}}\]
+此时整个帧的定义就结束了。但这整个过程没有用到第四个方程。更详细的讨论将在下面给出。
+{\centering \includegraphics[width = .4\textwidth]{pic/defineaframe.png}
+
+}
+
+在实际开发中，设定线性调频脉冲的参数的过程可能比上面的讨论更有'迭代性'。比如：
+\begin{enumerate}[1)]
+\item [1)]
+设备可能不支持所需的最大IF带宽：由于\(F_{if\_max}=\frac{S2d_{max}}{c}\)，设计者需要按需平衡S或$d_{max}$。
+\item [2)]
+设备在发射调频脉冲时必须能够生成所需的斜率S(通常雷达中的合成器对能够生成的最大斜率有限制)。
+\item [3)]
+调频脉冲之间的空闲时间$T_c$可能存在于特定设备的要求。
+\item [4)]
+设备必须有足够大的内存来存储所有脉冲的距离FFT数据，否则多普勒FFT无法进行。
+\end{enumerate}
+\subparagraph{S与$d_{max}$的取舍}
+由公式可知：$d_{max}$增加对应着S必须减小。假设脉冲的时间长度$T_c$一定($T_c$由$v_{max}$决定)，当斜率S降低时会直接导致带宽B降低，从而导致距离分辨率$d_{res}$降低。
+{\centering \includegraphics[width = .4\textwidth]{pic/sdconflicts.png}
+
+}
+
+通常的做法是：对于给定的脉冲时间$T_c$：
+\begin{enumerate}[1)]
+\item [1)]
+一个短距离雷达会提高斜率S，从而有更大的带宽$->$更好的距离分辨率
+\item [2)]
+一个长距离雷达会降低斜率S，从而有较小的带宽。
+\end{enumerate}
+\subsubsection{雷达距离方程}
+\paragraph{影响雷达最大探测距离的其他因素}
+当雷达发射脉冲后，该最大距离物体反射的信号应该有足够的强度才能被雷达接收到。
+
+{\centering \includegraphics[width = .4\textwidth]{pic/POWER.png}
+
+}
+如图所示，雷达发射输出功率为$P_t$，由于信号被不断地扩散，其功率密度随距离d的平方成反比，即：
+
+{\centering
+\qquad发射功率密度=\(\frac{P_tG_{TX}}{4\pi d^2}\)$W/m^2$\\
+}
+
+可以通过使用更高功率增益的天线来提高功率密度，其工作方式通常是通过提高方向性来束缚功率扩散。上式中的$G_TX/RX$即天线的发射/接收增益。此时被物体反射的功率密度为
+
+{\centering
+发射功率密度*$\sigma$=\(\frac{P_tG_{TX}\sigma}{4\pi d^2}\)W\\}
+其中$\sigma$为目标的雷达截面积(Radar Cross Section,RCS)，用于表示雷达接收端方向上反射雷达信号的强度。
+
+因而可推出雷达接收天线处的功率密度为：
+\[\frac{P_tG_{TX}\sigma}{(4\pi)^2 d^4}\]\\
+雷达RX天线捕获到的功率为
+\[P_{capture}=
+\frac{P_tG_{TX}\sigma A_{RX}}{(4\pi)^2 d^4}=
+\frac{P_tG_{TX}\sigma G_{RX}\lambda^2}{(4\pi)^3 d^4}
+\]\\
+$A_{RX}$为RX天线的有效孔径面积，度量了天线捕获接收信号的能力：\(A_{RX}=\frac{G_{RX}\lambda^2}{4\pi}\)\\
+另外还有一件重要的事实：接收信号中会混有噪声。噪声太大会直接淹没原信号，所以这里我们需要用到信噪比SNR的概念：SNR=信号功率/噪声功率。在雷达中，有
+\[SNR=\frac{\sigma P_tG_{TX}G_{RX}\lambda^2 T_{meas}}{(4\pi)^3 d^4 kTF}\]
+其中$T_{meas}$为总测量时间：$T_{meas}=NT_c$,k为玻尔兹曼常数，T为天线温度(绝对温度)。kTF为接收端的热噪声\\
+当雷达检测一个物体时，对SNR最小值有限制：$SNR_{min}$的典型值为15dB-20dB。当接收到的SNR低于最小SNR时，任何目标将不被视为有效目标。\\
+给定$SNR_{min}$,可计算雷达最大探测距离:
+\[d_{max}=(\frac{\sigma P_tG_{TX}G_{RX}\lambda^2 T_{meas}}{(4\pi)^3 SNR_{min} kTF})^{\frac{1}{4}}\]
+
+\subsection{角度估计}
+{\centering \includegraphics[width = .3\textwidth]{pic/angleestimate.png}
+
+}
+考虑一个问题：当有两个物体雷达的距离与速度均相同时，如何分辨二者？此时多普勒FFT与距离FFT均已不能分辨。本小节主要介绍使用多个天线来估计物体的到达角(Angle of arrival)的方法。
 \end{document}
 
