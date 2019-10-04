@@ -249,9 +249,84 @@ $A_{RX}$为RX天线的有效孔径面积，度量了天线捕获接收信号的�
 \[d_{max}=(\frac{\sigma P_tG_{TX}G_{RX}\lambda^2 T_{meas}}{(4\pi)^3 SNR_{min} kTF})^{\frac{1}{4}}\]
 
 \subsection{角度估计}
+
 {\centering \includegraphics[width = .3\textwidth]{pic/angleestimate.png}
 
 }
+
 考虑一个问题：当有两个物体雷达的距离与速度均相同时，如何分辨二者？此时多普勒FFT与距离FFT均已不能分辨。本小节主要介绍使用多个天线来估计物体的到达角(Angle of arrival)的方法。
+
+\paragraph{到达角(A0A)测量基础}:
+复习：当物体在距离上改变一个微小量$\Delta d$之后，距离FFT的峰值处将会产生一个相位变化。
+
+{\centering \includegraphics[width = .3\textwidth]{pic/angleest.png}
+
+}
+
+\[\Delta \omega=\frac{4\pi \Delta d}{\lambda}\]
+\paragraph{}
+角度估计使用了类似的原理。角度估计需要至少两个RX天线，物体距离两个天线的距离差将会导致2D-FFT中峰值的相位变化，由此计算AoA。
+
+{\centering \includegraphics[width = .3\textwidth]{pic/twoRX.png}
+
+}
+
+同理，\(\Delta \omega=\frac{2\pi \Delta d}{\lambda}\)，请注意上式中$2\pi$的因子项。
+\subsubsection{具体过程分析}
+\begin{enumerate}[1)]
+\item [1)]
+TX天线发射一帧线性调频脉冲
+\item [2)]
+每个RX天线进行2D-FFT，他们将在同一个位置有峰值，但相位不同
+\item [3)]
+测量的相位差$\Delta \omega$可以用于测量AoA
+\end{enumerate}
+{\centering \includegraphics[width = .3\textwidth]{pic/analysis.png}
+
+}
+
+上图中d为两个RX天线之间的距离，假设物体离两天线距离足够远，则两条反射波平行，$\theta$时物体相对于雷达的到达角，则有：
+\[\omega=\frac{2\pi d sin(\theta)}{\lambda} \, -> \, \theta=sin^{-1}(\frac{\lambda \omega}{2\pi d})\]
+可见$\omega$与$\theta$为非线性关系，在$\theta =0$时，$\omega$对$\theta$的变化最为敏感，当$\theta$增加时，角度估计误差更容易出现误差。
+
+{\centering \includegraphics[width = .3\textwidth]{pic/sensitivety.png}
+
+}
+{\centering \includegraphics[width = .7\textwidth]{pic/thetasens.png}
+
+}
+
+\subsubsection{雷达的最大视场}
+\paragraph{}与最大可测量速度类似，雷达左侧的物体与雷达右边的物体之间的$|\Delta \omega|<180^{\circ}$，否则无法判断。\\
+\[=> \frac{2\pi d sin(\theta)}{\lambda}<\pi=>\theta<sin^{-1}(\frac{\lambda}{2d})\]
+可推出雷达RX天线相距为d,则最大视场为\(\theta_{max}=sin^{-1}(\frac{\lambda}{2d})\)\\
+相距为$\frac{\lambda}{2}$的雷达可以得到最大视场$+-90^{\circ}$\\
+\subsubsection{测量具有相同距离与速度的两个物体}
+{\centering \includegraphics[width = .2\textwidth]{pic/sametwo.png}
+
+}
+
+\paragraph{}
+由于两个物体具有相同的位置，则距离FFT的峰值位置相同；相同的速度导致多普勒FFT峰值相同。但当使用两个RX天线时，两个RX天线进行FFT的相量的相位将不会相同。\\
+因此，解决方案：使用N组接收天线的矩阵。对这N组RX天线的2D-FFT进行再次FFT，将会解析两个物体。称为角度FFT(angle-FFT)。
+
+{\centering \includegraphics[width = .3\textwidth]{pic/angleFFT.png}
+
+}
+
+$\omega_1$ 和$\omega_2$ 对应于两个连续的线性调频脉冲的相位差（两个物体），反向计算可得两物体的AoA$=> \theta_x=sin^{-1}(\frac{\lambda \omega_x}{2\pi d})$,其中x为1,2
+
+\subsubsection{角度分辨率}
+\paragraph{}
+当两个物体之间的夹角小于$\Delta \theta$时，将无法分辨物体个数。此$\Delta \theta$称为角度分辨率。
+\subparagraph{解算方法}:\\
+(1)两物体相隔$\theta$角时，其角度FFT计算出的离散频率为$\omega=\frac{2\pi d sin(\theta)}{\lambda}$\\
+(2)频域可分辨的标准：$\Delta \omega > \frac{2\pi}{N}$,N为FFT的样本数（在这里是天线的个数）\\
+可解出
+
+{\centering \includegraphics[width = .7\textwidth]{pic/result.png}
+
+}
+
 \end{document}
 
